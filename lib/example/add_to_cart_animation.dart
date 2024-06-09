@@ -17,7 +17,8 @@ class _AddToCartAnimationState extends State<AddToCartAnimation> {
           onTap: () {
             setState(() {
               isExpanded = !isExpanded;
-            });
+            },
+            );
           },
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 800),
