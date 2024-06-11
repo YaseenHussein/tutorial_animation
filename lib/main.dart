@@ -6,7 +6,9 @@ import 'package:tutorial_animation/example/draggable_scrollable.dart';
 import 'package:tutorial_animation/example/fab_circular_animation.dart';
 
 import 'package:tutorial_animation/example/flutter_aniamtion_list.dart';
+import 'package:tutorial_animation/example/moving_object_animation.dart';
 import 'package:tutorial_animation/login_register_app/screen/splash_view.dart';
+import 'package:tutorial_animation/login_rive_animation/rive_login_animation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: MySplashScreen(),
+      home: RiveLoginAnimation(),
     );
   }
 }
