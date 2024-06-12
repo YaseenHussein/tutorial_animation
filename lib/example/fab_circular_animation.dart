@@ -41,12 +41,14 @@ class RadialMenu extends StatelessWidget {
   RadialMenu({super.key, required this.controller})
       : scale = Tween<double>(begin: 1.0, end: 0.0)
             .animate(CurvedAnimation(parent: controller, curve: Curves.linear)),
-        transform = Tween<double>(begin: 0.0, end: 110.0)
+        transform = Tween<double>(begin: 0.0, end: 100.0)
             .animate(CurvedAnimation(parent: controller, curve: Curves.easeIn)),
         rotate = Tween<double>(begin: 0.0, end: 360 * pi).animate(
-            CurvedAnimation(
-                parent: controller,
-                curve: const Interval(0.0, .8, curve: Curves.decelerate)));
+          CurvedAnimation(
+            parent: controller,
+            curve: const Interval(0.0, .8, curve: Curves.decelerate),
+          ),
+        );
   final AnimationController controller;
   final Animation<double> scale;
   final Animation<double> transform;
@@ -63,14 +65,18 @@ class RadialMenu extends StatelessWidget {
             alignment: AlignmentDirectional.center,
             children: [
               itemsButton(0, color: Colors.purple, icon: Icons.home),
-              itemsButton(45, color: Colors.red.shade200, icon: Icons.home),
-              itemsButton(90, color: Colors.orange.shade200, icon: Icons.home),
-              itemsButton(135, color: Colors.brown.shade100, icon: Icons.home),
-              itemsButton(180, color: Colors.green, icon: Icons.home),
-              itemsButton(225, color: Colors.teal, icon: Icons.home),
+              itemsButton(45, color: Colors.red.shade200, icon: Icons.add),
+              itemsButton(90,
+                  color: Colors.orange.shade200,
+                  icon: Icons.location_on_outlined),
+              itemsButton(135, color: Colors.brown.shade100, icon: Icons.menu),
+              itemsButton(180,
+                  color: Colors.green, icon: Icons.new_releases_sharp),
+              itemsButton(225, color: Colors.teal, icon: Icons.help),
               itemsButton(270,
-                  color: Colors.yellowAccent.shade100, icon: Icons.home),
-              itemsButton(315, color: Colors.pink, icon: Icons.home),
+                  color: Colors.yellowAccent.shade100,
+                  icon: Icons.video_camera_back_sharp),
+              itemsButton(315, color: Colors.pink, icon: Icons.image),
               Transform.scale(
                 scale: scale.value - 1.3,
                 child: FloatingActionButton(
@@ -106,6 +112,7 @@ class RadialMenu extends StatelessWidget {
           (transform.value) * sin(rad),
         ),
       child: FloatingActionButton(
+        elevation: 0.5,
         onPressed: close,
         backgroundColor: color,
         child: Icon(
